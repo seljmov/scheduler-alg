@@ -49,8 +49,6 @@ class TaskProvider {
         id: 5,
         name: "Курсовой проект по БД",
         deadline: DateTime.parse("2022-05-25 10:00"),
-        labor: -1,
-        priority: -1,
         subtasksIds: [6, 7, 8, 9, 10],
       ),
       Task(
