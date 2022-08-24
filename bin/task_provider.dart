@@ -55,7 +55,6 @@ class TaskProvider {
       ),
       Task(
         id: 6,
-        parentId: 5,
         name: "Введение",
         deadline: DateTime.parse("2022-04-10 10:00"),
         labor: 180,
@@ -63,7 +62,6 @@ class TaskProvider {
       ),
       Task(
         id: 7,
-        parentId: 5,
         name: "Технический проект",
         deadline: DateTime.parse("2022-01-20 10:00"),
         labor: 300,
@@ -71,7 +69,6 @@ class TaskProvider {
       ),
       Task(
         id: 8,
-        parentId: 5,
         name: "Программный продукт",
         deadline: DateTime.parse("2022-05-03 10:00"),
         labor: 480,
@@ -79,7 +76,6 @@ class TaskProvider {
       ),
       Task(
         id: 9,
-        parentId: 5,
         name: "Методика испытания и тестирования",
         deadline: DateTime.parse("2022-05-06 10:00"),
         labor: 120,
@@ -87,7 +83,6 @@ class TaskProvider {
       ),
       Task(
         id: 10,
-        parentId: 5,
         name: "Заключение",
         deadline: DateTime.parse("2022-05-08 10:00"),
         labor: 60,
@@ -125,7 +120,7 @@ class TaskProvider {
       ),
     ]
         .where((task) =>
-            task.parentId == null &&
+            task.subtasksIds.isEmpty &&
             task.status != TaskStatus.isCompleted &&
             task.status != TaskStatus.isOverdue)
         .toList();

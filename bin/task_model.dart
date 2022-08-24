@@ -2,15 +2,14 @@ import 'task_status.dart';
 
 class Task {
   final int id;
-  final int? parentId;
   final String name;
-  final String? caption;
+  final String caption;
   final DateTime deadline;
   final double labor;
   final int priority;
   final String status;
-  final List<int>? subtasksIds;
-  final List<int>? dependsIds;
+  final List<int> subtasksIds;
+  final List<int> dependsIds;
 
   Task({
     required this.id,
@@ -18,11 +17,10 @@ class Task {
     required this.deadline,
     required this.labor,
     required this.priority,
-    this.parentId,
-    this.caption,
+    this.caption = "",
     this.status = TaskStatus.isNew,
-    this.subtasksIds,
-    this.dependsIds,
+    this.subtasksIds = const <int>[],
+    this.dependsIds = const <int>[],
   });
 
   Map<String, dynamic> toJson() => {
