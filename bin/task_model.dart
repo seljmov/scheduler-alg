@@ -1,6 +1,6 @@
 import 'task_status.dart';
 
-class Task {
+class TaskModel {
   final int id;
   final String name;
   final String caption;
@@ -11,7 +11,7 @@ class Task {
   final List<int> subtasksIds;
   final List<int> dependsIds;
 
-  Task({
+  TaskModel({
     required this.id,
     required this.name,
     required this.deadline,
