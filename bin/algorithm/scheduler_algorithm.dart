@@ -21,7 +21,7 @@ class SchedulerAlgorithm {
   ) {
     var tasksDependsPriorities = _getTasksDependsPriorities(tasks);
     var taskForPlanning = _getTasksForPlanning(tasks).toList();
-    var k = taskForPlanning
+    return taskForPlanning
         .map((task) => AlgorithmItem(
               id: task.id,
               deadline: task.deadline,
@@ -30,9 +30,9 @@ class SchedulerAlgorithm {
               dependsIds: task.dependsIds,
             ))
         .toList();
-    return k;
   }
 
+  /// Получить данные, которые можно запланировать
   static Iterable<TaskModel> _getTasksForPlanning(List<TaskModel> tasks) {
     var tasksIds = tasks.map((task) => task.id);
     return tasks.where(
@@ -40,7 +40,7 @@ class SchedulerAlgorithm {
     );
   }
 
-  // Получить идентификаторы заказов, от которых зависят другие заказы с их приоритетом
+  /// Получить идентификаторы заказов, от которых зависят другие заказы с их приоритетом
   static Map<int, int> _getTasksDependsPriorities(
     List<TaskModel> tasks,
   ) {
