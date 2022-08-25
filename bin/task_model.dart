@@ -26,9 +26,9 @@ class TaskModel {
   Map<String, dynamic> toJson() => {
         "id": id,
         "name": name,
+        "caption": caption,
         "deadline": deadline.toString(),
         "labor": labor,
         "priority": priority,
-        "subtasksIds": subtasksIds,
       };
 }

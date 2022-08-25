@@ -26,7 +26,8 @@ class AlgorithmDataPreparer {
               id: task.id,
               deadline: task.deadline,
               labor: task.labor,
-              priority: task.priority + tasksDependsPriorities[task.id]! * 2,
+              priority: task.priority,
+              dependsPriority: tasksDependsPriorities[task.id]!,
               dependsIds: task.dependsIds,
             ))
         .toList();
