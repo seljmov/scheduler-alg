@@ -18,12 +18,6 @@ class AlgorithmImportanceSolver {
       return items.values.map((item) => item.id).toList();
     }
 
-    print('------------------');
-    items.forEach((key, value) {
-      print('id: ${value.id},\timportance: $key');
-    });
-    print('------------------');
-
     final itemsSortedImportances = items.keys.toList();
     itemsSortedImportances.sort();
     final lastTasksCount = itemsSortedImportances
@@ -50,5 +44,6 @@ class AlgorithmImportanceSolver {
     return second.difference(first).inSeconds;
   }
 
-  static double _laborToHours(double labor) => labor / 60 / 60;
+  /// Получить трудоёмкость в часах
+  static double _laborToHours(double labor) => labor / 3600;
 }

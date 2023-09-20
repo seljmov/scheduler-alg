@@ -139,7 +139,7 @@ var _testTasksBase = [
     deadline: DateTime.parse("2022-10-15 09:00"),
     labor: 60 * 60 * 2, // 2 часа
     priority: TaskPriority.medium,
-    dependIds: [12],
+    dependIds: [13],
   ),
   TaskModel(
     id: 16,
@@ -147,23 +147,23 @@ var _testTasksBase = [
     deadline: DateTime.parse("2022-10-25 09:00"),
     labor: 60 * 60 * 2.5, // 2.5 часа
     priority: TaskPriority.medium,
-    dependIds: [12],
+    dependIds: [15],
   ),
   TaskModel(
     id: 17,
     name: "ЛР №5 по АД",
-    deadline: DateTime.parse("2022-10-15 09:00"),
+    deadline: DateTime.parse("2022-11-05 09:00"),
     labor: 60 * 60 * 3, // 3 часа
     priority: TaskPriority.medium,
-    dependIds: [12],
+    dependIds: [16],
   ),
   TaskModel(
     id: 18,
     name: "ЛР №6 по АД",
-    deadline: DateTime.parse("2022-10-25 09:00"),
+    deadline: DateTime.parse("2022-11-15 09:00"),
     labor: 60 * 60 * 2, // 2 часа
     priority: TaskPriority.medium,
-    dependIds: [12],
+    dependIds: [17],
   ),
   TaskModel(
     id: 19,
@@ -171,7 +171,7 @@ var _testTasksBase = [
     deadline: DateTime.parse("2022-10-11 09:00"),
     labor: 60 * 60 * 4, // 4 часа
     priority: TaskPriority.high,
-    dependIds: [1],
+    dependIds: [11],
   ),
   TaskModel(
     id: 20,
@@ -179,7 +179,7 @@ var _testTasksBase = [
     deadline: DateTime.parse("2022-10-23 09:00"),
     labor: 60 * 60 * 2, // 2 часа
     priority: TaskPriority.high,
-    dependIds: [1],
+    dependIds: [19],
   ),
   TaskModel(
     id: 21,
@@ -187,7 +187,7 @@ var _testTasksBase = [
     deadline: DateTime.parse("2022-11-02 09:00"),
     labor: 60 * 60 * 5, // 5 часов
     priority: TaskPriority.high,
-    dependIds: [1],
+    dependIds: [20],
   ),
   TaskModel(
     id: 22,

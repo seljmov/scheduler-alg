@@ -60,12 +60,6 @@ class AlgorithmDataPreparer {
       dependPrioritiesByTaskId[item] = dependIdCount[item]! * 2;
     }
 
-    print('---------------------------');
-    dependPrioritiesByTaskId.forEach((key, value) {
-      print('id: $key, priority: $value');
-    });
-    print('---------------------------');
-
     return dependPrioritiesByTaskId;
   }
 }
