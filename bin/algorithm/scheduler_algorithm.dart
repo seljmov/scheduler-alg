@@ -1,5 +1,5 @@
-import '../task_model.dart';
-import '../task_provider.dart';
+import '../task/task_model.dart';
+import '../task/task_provider.dart';
 import 'algorithm_data_preparer.dart';
 import 'algorithm_importance_solver.dart';
 
@@ -12,8 +12,7 @@ class SchedulerAlgorithm {
   /// Задачи для планирования
   final List<TaskModel> tasks;
 
-  /// Начать планирование
-  void run() {
+  List<TaskModel> run() {
     final dataPreparer = AlgorithmDataPreparer(tasks: tasks);
     final algorithmItems = dataPreparer.getData();
 
@@ -27,5 +26,7 @@ class SchedulerAlgorithm {
     for (final task in resultTasks) {
       print(task.toJson());
     }
+
+    return [];
   }
 }

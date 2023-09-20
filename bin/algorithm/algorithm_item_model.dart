@@ -1,17 +1,46 @@
+/// Элемент алгоритма
 class AlgorithmItem {
+  /// Идентификатор задачи
   final int id;
-  final DateTime deadline;
-  final double labor;
-  final int priority;
-  final int dependsPriority;
-  final List<int> dependsIds;
 
+  /// Дедлайн
+  final DateTime deadline;
+
+  /// Трудоёмкость в секундах
+  final double labor;
+
+  /// Приоритет
+  final int priority;
+
+  /// Приоритет зависимости
+  final int dependsPriority;
+
+  /// Идентификаторы зависимых задач
+  final List<int> dependIds;
+
+  /// Конструктор
   AlgorithmItem({
     required this.id,
     required this.deadline,
     required this.labor,
     required this.priority,
     this.dependsPriority = 0,
-    this.dependsIds = const <int>[],
+    this.dependIds = const <int>[],
   });
+
+  /// Преобразовать в JSON
+  Map<String, dynamic> toJson() {
+    return {
+      "id": id,
+      "deadline": deadline.toIso8601String(),
+      "labor": labor,
+      "priority": priority,
+      "dependsPriority": dependsPriority,
+      "dependIds": dependIds,
+    };
+  }
+
+  /// Преобразовать в строку
+  @override
+  String toString() => 'AlgorithmItem(${toJson().toString()})';
 }

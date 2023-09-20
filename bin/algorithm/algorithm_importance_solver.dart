@@ -2,22 +2,35 @@ import 'algorithm_item_model.dart';
 
 /// Алгоритм вычисления самых важных задач
 class AlgorithmImportanceSolver {
-  const AlgorithmImportanceSolver({
+  AlgorithmImportanceSolver({
     required this.algorithmItems,
   });
 
   /// Задачи для планирования
   final List<AlgorithmItem> algorithmItems;
+  static final DateTime now = DateTime.parse("2022-09-01 09:00");
 
   /// Получить идентификаторы самых важных задач
   List<int> getIdsMostImportantTasks([int tasksCount = 3]) {
-    var items = _getAlgorithmItemsWithImportance();
-    var itemsSortedImportances = items.keys.toList();
-    itemsSortedImportances.sort();
-    var taskIds =
-        itemsSortedImportances.reversed.toList().sublist(0, tasksCount);
+    final items = _getAlgorithmItemsWithImportance();
 
-    return taskIds.map((key) => items[key]!.id).toList();
+    if (items.length <= tasksCount) {
+      return items.values.map((item) => item.id).toList();
+    }
+
+    print('------------------');
+    items.forEach((key, value) {
+      print('id: ${value.id},\timportance: $key');
+    });
+    print('------------------');
+
+    final itemsSortedImportances = items.keys.toList();
+    itemsSortedImportances.sort();
+    final lastTasksCount = itemsSortedImportances
+        .sublist(itemsSortedImportances.length - tasksCount)
+        .reversed;
+
+    return lastTasksCount.map((key) => items[key]!.id).toList();
   }
 
   /// Получить задачи с их коэфициентом важности
@@ -27,12 +40,15 @@ class AlgorithmImportanceSolver {
 
   /// Получить важность задачи
   static double _findImportance(AlgorithmItem item) {
-    return (2 * item.priority + item.labor + 2 * item.dependsPriority) /
-        (2 * _findHoursBetweenDates(DateTime.now(), item.deadline));
+    return (item.priority + item.dependsPriority + _laborToHours(item.labor)) /
+        (_findSecondsBetweenDates(now, item.deadline) + 1);
+    //(_findSecondsBetweenDates(DateTime.now(), item.deadline) + 1);
   }
 
-  /// Получить разницу между датами в часах
-  static double _findHoursBetweenDates(DateTime first, DateTime second) {
-    return second.difference(first).inMinutes / 60;
+  /// Получить разницу между датами в секундах
+  static int _findSecondsBetweenDates(DateTime first, DateTime second) {
+    return second.difference(first).inSeconds;
   }
+
+  static double _laborToHours(double labor) => labor / 60 / 60;
 }
